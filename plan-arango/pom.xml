@@ -11,7 +11,7 @@
     <dependencies>
         <dependency>
             <groupId>com.simile.plan.gdb</groupId>
-            <artifactId>plan-gdb-open</artifactId>
+            <artifactId>plan-arango-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

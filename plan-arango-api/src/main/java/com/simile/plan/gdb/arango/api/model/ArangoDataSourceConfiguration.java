@@ -1,6 +1,7 @@
-package com.simile.plan.gdb.arango;
+package com.simile.plan.gdb.arango.api.model;
 
-import com.arangodb.entity.LoadBalancingStrategy;
+import com.simile.plan.gdb.arango.constants.LoadBalancingStrategy;
+import com.simile.plan.gdb.open.GdbDataSourceConfiguration;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ArangoDataSourceConfiguration {
+public class ArangoDataSourceConfiguration implements GdbDataSourceConfiguration {
 
     private ArangoHost[] hosts;
     private String user;

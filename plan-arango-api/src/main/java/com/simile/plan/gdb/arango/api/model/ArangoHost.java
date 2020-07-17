@@ -1,4 +1,4 @@
-package com.simile.plan.gdb.arango;
+package com.simile.plan.gdb.arango.api.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
