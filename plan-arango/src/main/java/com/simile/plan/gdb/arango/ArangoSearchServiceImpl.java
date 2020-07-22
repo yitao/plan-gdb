@@ -24,6 +24,9 @@ public class ArangoSearchServiceImpl
     private ArangoDataSource dataSource;
     private ArangoDB arangoDB;
 
+    public ArangoSearchServiceImpl(ArangoDataSourceConfiguration dataSourceConfig) {
+        init(dataSourceConfig);
+    }
 
     @Override
     public ArangoSearchService init(ArangoDataSourceConfiguration dataSourceConfig) {

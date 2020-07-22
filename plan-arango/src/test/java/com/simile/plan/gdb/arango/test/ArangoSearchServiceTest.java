@@ -14,8 +14,8 @@ public class ArangoSearchServiceTest {
 
     @Test
     public void testSearch() {
-        ArangoSearchService arangoSearchService = new ArangoSearchServiceImpl();
         ArangoDataSourceConfiguration dataSourceConfig = new ArangoDataSourceConfiguration("192.168.1.36", 8529);
+        ArangoSearchService arangoSearchService = new ArangoSearchServiceImpl(dataSourceConfig);
         arangoSearchService.init(dataSourceConfig);
 
         SearchData searchData = new SearchData("beijing_poc", "person_new", 1, 10);

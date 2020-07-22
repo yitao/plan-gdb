@@ -19,6 +19,10 @@ public class ArangoAdminServiceImpl implements ArangoAdminService {
     private ArangoDataSource dataSource;
     private ArangoDB arangoDB;
 
+    public ArangoAdminServiceImpl(ArangoDataSourceConfiguration dataSourceConfig) {
+        init(dataSourceConfig);
+    }
+
     @Override
     public ArangoAdminServiceImpl init(ArangoDataSourceConfiguration dataSourceConfig) {
         ArangoDataSource dataSource = new ArangoDataSource(dataSourceConfig);

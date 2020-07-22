@@ -19,6 +19,10 @@ public class ArangoUserServiceImpl implements ArangoUserService {
     private ArangoDataSource dataSource;
     private ArangoDB arangoDB;
 
+    public ArangoUserServiceImpl(ArangoDataSourceConfiguration dataSourceConfig) {
+        init(dataSourceConfig);
+    }
+
     @Override
     public ArangoUserService init(ArangoDataSourceConfiguration dataSourceConfig) {
         ArangoDataSource dataSource = new ArangoDataSource(dataSourceConfig);
