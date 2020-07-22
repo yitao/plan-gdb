@@ -19,8 +19,11 @@ public class ArangoDataSourceConfiguration implements GdbDataSourceConfiguration
     private String password;
     private LoadBalancingStrategy loadBalancingStrategy = LoadBalancingStrategy.ROUND_ROBIN;
 
-    private Long connectionTtl = 5*60*1000L;
+    private Long connectionTtl = 5 * 60 * 1000L;
     private Boolean acquireHostList = Boolean.TRUE;
 
-
+    public ArangoDataSourceConfiguration(String host, int port) {
+        ArangoHost arangoHost = new ArangoHost(host, port);
+        this.hosts = new ArangoHost[]{arangoHost};
+    }
 }

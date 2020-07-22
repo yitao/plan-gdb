@@ -65,6 +65,9 @@ public class ArangoUserServiceImpl implements ArangoUserService {
         return dr;
     }
 
+
+
+
     private ArangoDatabase getArangoDatabase(String database) {
         return this.arangoDB.db(database);
     }
