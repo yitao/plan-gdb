@@ -20,4 +20,11 @@ public class JanusDataSourceConfig {
     private int maxContentLength = 6553500;
     private int maxWaitForConnection = 3000;
     private int workerPoolSize = 4;
+
+    public JanusDataSourceConfig(String[] hosts, int port, String user, String password) {
+        this.hosts = hosts;
+        this.port = port;
+        this.user = user;
+        this.password = password;
+    }
 }

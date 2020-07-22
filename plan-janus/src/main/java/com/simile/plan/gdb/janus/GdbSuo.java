@@ -1,6 +1,5 @@
 package com.simile.plan.gdb.janus;
 
-import com.haizhi.atlas.common.base.constant.GOperation;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
