@@ -52,13 +52,15 @@
             <artifactId>jackson-annotations</artifactId>
             <version>${jackson.version}</version>
         </dependency>
+        <!--        jackson end -->
+
         <dependency>
             <groupId>com.simile.plan.gdb</groupId>
             <artifactId>plan-gdb-open</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-        <!--        jackson end -->
+
 
         <dependency>
             <groupId>junit</groupId>

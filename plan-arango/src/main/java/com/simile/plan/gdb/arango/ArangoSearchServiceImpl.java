@@ -38,7 +38,7 @@ public class ArangoSearchServiceImpl
 
     @Override
     public SearchResult findByPage(SearchData searchData) {
-        ArangoDatabase db = getArangoDatabase(searchData.getDatabase());
+        ArangoDatabase adb = getArangoDatabase(searchData.getDatabase());
         ArangoCollection ac = getArangoCollection(searchData.getDatabase(), searchData.getTable());
         AqlQueryOptions queryOptions = new AqlQueryOptions();
         queryOptions.fullCount(true);
@@ -46,7 +46,14 @@ public class ArangoSearchServiceImpl
         bindVars.put("@schema", searchData.getTable());
         bindVars.put("from", (searchData.getPageNo() - 1) * searchData.getPageSize());
         bindVars.put("size", searchData.getPageSize());
-        ArangoCursor cursor = db.query("for u in @@schema limit @from,@size return u", bindVars, queryOptions, Map.class);
+        StringBuilder sb = new StringBuilder("FOR doc IN @@schema ");
+//        sb.append("filter doc.object_key=='471413189417353118'");
+//        sb.append("FILTER NOT LIKE(doc.object_key,'%47%',false) AND doc.xm!='赵莉莎'");
+        sb.append("FILTER doc.zy!=null and doc.zy!=''");
+        sb.append("LIMIT @from,@size ");
+        sb.append("RETURN doc");
+        ArangoCursor cursor = adb.query(sb.toString(), bindVars, queryOptions, Map.class);
+
         Long total = cursor.getStats() == null ? null :
                 (cursor.getStats().getFullCount() == null ? null : cursor.getStats().getFullCount());
         List<Map<String, Object>> rows = new ArrayList<>();

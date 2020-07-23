@@ -38,7 +38,7 @@ public class ArangoUserServiceImpl implements ArangoUserService {
 
         ArangoCollection ac = getArangoCollection(writeData.getDatabase(), writeData.getTable());
         //考虑分批写入数据，降低arango负载
-        DocumentImportEntity res = ac.importDocuments(writeData.getRows());
+        DocumentImportEntity res = ac.importDocuments(writeData.getRows(), options);
 
         WriteResult wr = new WriteResult(res.getCreated(), res.getErrors()
                 , res.getEmpty(), res.getUpdated(), res.getIgnored());
@@ -68,8 +68,6 @@ public class ArangoUserServiceImpl implements ArangoUserService {
         DeleteResult dr = new DeleteResult(res.getErrors().size(), null, res.getDocuments().size());
         return dr;
     }
-
-
 
 
     private ArangoDatabase getArangoDatabase(String database) {
