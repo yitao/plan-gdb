@@ -5,4 +5,7 @@ package com.simile.plan.janusgraph.api.model;
  * @since 2020-07-24
  */
 public interface GraphDefinition {
+
+    String getGraph();
+
 }

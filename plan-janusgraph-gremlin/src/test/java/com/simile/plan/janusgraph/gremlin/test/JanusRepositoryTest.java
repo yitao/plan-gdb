@@ -1,7 +1,7 @@
 package com.simile.plan.janusgraph.gremlin.test;
 
 import com.simile.plan.janusgraph.gremlin.model.CommonDataSourceConfiguration;
-import com.simile.plan.janusgraph.gremlin.JanusRepository;
+import com.simile.plan.janusgraph.gremlin.JanusGraphClient;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,13 +13,13 @@ import java.util.concurrent.ExecutionException;
  */
 public class JanusRepositoryTest {
 
-    private JanusRepository janusRepository;
+    private JanusGraphClient janusRepository;
 
     @Before
     public void initRepository(){
         String[] hosts = {"192.168.1.244","192.168.1.245","192.168.1.246"};
         CommonDataSourceConfiguration dataSourceConfig = new CommonDataSourceConfiguration(hosts,8182,"haizhi","123456");
-        janusRepository = new JanusRepository(dataSourceConfig);
+        janusRepository = new JanusGraphClient(dataSourceConfig);
     }
 
     //查看库列表
